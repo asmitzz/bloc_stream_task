@@ -17,11 +17,11 @@ class AddTodos extends TodosEvent {
 }
 
 class UpdateTodos extends TodosEvent {
-  const UpdateTodos({required this.todos});
-  final List<TodosModel> todos;
+  const UpdateTodos({required this.todoId});
+  final String todoId;
 
   @override
-  List<Object> get props => [todos];
+  List<Object> get props => [todoId];
 }
 
 class DeleteTodos extends TodosEvent {

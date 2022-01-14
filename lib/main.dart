@@ -12,22 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TodosBloc todoService = TodosBloc(todos: []);
     return BlocProvider(
-      create: (context) => TodosBloc(
-        todos: [],
-      ),
-      child: const MaterialApp(
-        home: TodoView(),
+      create: (context) => todoService,
+      child:  MaterialApp(
+        home: TodosPage(todoStream:todoService.todos),
       ),
     );
-  }
-}
-
-class TodoView extends StatelessWidget {
-  const TodoView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const TodosPage();
   }
 }
